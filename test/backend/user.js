@@ -22,7 +22,7 @@ describe('Testing User CRUD Function', () => {
         fullname: 'usertest',
         username: 'usertest',
         email: 'usertest@usertest.com',
-        password: 'usertest'
+        password: 'usertest',
         salt: 'usertest'
       })
       .end((error, response) => {
@@ -34,26 +34,22 @@ describe('Testing User CRUD Function', () => {
 
   it('It should GET/:id an user by the given id', (done) => {
     chai.request('http://localhost:3000/api')
-      .get('/user/')
+      .get('/user/usertest')
       .end((error, response) => {
         response.should.have.status(200)
         response.body.should.be.a('object')
-        response.body.should.have.property('fullname')
-        response.body.should.have.property('username')
-        response.body.should.have.property('email')
-        response.body.should.have.property('password')
         done()
       })
   })
 
   it('It should PUT/:id an user by the given id', (done) => {
     chai.request('http://localhost:3000/api')
-      .put('/user/mrhandoko')
+      .put('/user/usertest')
       .send({
         fullname: 'usertest1',
-        username: 'usertest1',
+        username: 'usertest',
         email: 'usertest1@usertest.com',
-        password: 'usertest1'
+        password: 'usertest1',
         salt: 'usertest1'
       })
       .end((error, response) => {
@@ -65,7 +61,7 @@ describe('Testing User CRUD Function', () => {
 
   it('It should DELETE/:id an user by the given id', (done) => {
     chai.request('http://localhost:3000/api')
-      .delete('/user/mrhandoko')
+      .delete('/user/usertest')
       .end((error, response) => {
         response.should.have.status(200)
         response.body.should.be.a('object')

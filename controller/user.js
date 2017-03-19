@@ -11,6 +11,7 @@ User.getUsers = (req, res, next) => {
 
 User.newUser = (req, res, next) => {
   Model.create({
+    fullname: req.body.fullname,
     username: req.body.username,
     email: req.body.email,
     password: req.body.password
@@ -20,7 +21,7 @@ User.newUser = (req, res, next) => {
 }
 
 User.getUser = (req, res, next) => {
-  Model.findOne({ 'username': req.params.username }).then((data) => {
+  Model.findOne({ username: req.params.username }).then((data) => {
     res.send(data)
   })
 }

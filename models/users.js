@@ -4,11 +4,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 let schemaUser = Schema({
-  'fullname': String,
-  'username': String,
-  'email': String,
-  'password': String,
-  'salt': String
+  fullname: String,
+  username: String,
+  email: String,
+  password: String,
+  salt: String
 }, {
   timestamps: true
 })
